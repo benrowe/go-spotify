@@ -1,7 +1,7 @@
 package spotify
 
 import (
-	"fmt"
+	"strconv"
 
 	"github.com/everdev/mack"
 )
@@ -81,22 +81,16 @@ func Quit() error {
 // CurrentSong
 func CurrentSong() (Song, error) {
 	result := Song{}
-	fields := map[string]string{
-		"Artist":   "artist of current track as string",
-		"Album":    "album of current track as string",
-		"Track":    "name of current track as string",
-		"Duration": "duration of current track",
-	}
-	// var song Song
-	for _, val := range fields {
-		output, _ := run(val)
-		fmt.Println(output)
-		// song[key] = run(val)
-	}
-	return Song{
-		Album:    "",
-		Artist:   "",
-		Track:    "",
-		Duration: 0,
-	}, nil
+	artist, _ := run("artist of current track as string")
+	album, _ := run("album of current track as string")
+	track, _ := run("name of current track as string")
+	duration, _ := run("duration of current track")
+	dur, _ := strconv.Atoi(duration)
+
+	result.Artist = artist
+	result.Album = album
+	result.Track = track
+	result.Duration = uint(dur)
+
+	return result, nil
 }
