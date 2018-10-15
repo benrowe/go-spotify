@@ -43,7 +43,7 @@ func Play() (Song, error) {
 
 // PlayUri
 func PlayUri(uri string) (Song, error) {
-	_, err := run("play track uri")
+	_, err := run("play track \"" + uri + "\"")
 	return Song{}, err
 }
 

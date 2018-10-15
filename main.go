@@ -21,7 +21,7 @@ func main() {
 		spotify.Play()
 	case "pause":
 		spotify.Pause()
-	case "":
+	case "playuri":
 		uri := os.Args[2:3][0]
 		spotify.PlayUri(uri)
 	case "next":
