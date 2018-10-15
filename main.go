@@ -15,6 +15,7 @@ func main() {
 	}
 
 	cmd := os.Args[1:2][0]
+	// @todo tidy this
 	switch cmd {
 	case "play":
 		spotify.Play()
